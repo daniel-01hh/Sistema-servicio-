@@ -26,7 +26,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand mr-1" href="index.html">Consultar lista de Servicios</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -89,21 +89,33 @@
 
     <!-- Sidebar -->
    <ul class="sidebar navbar-nav">
+     <li class="nav-item dropdown">
+       <a class="nav-link" href="VentanaAdministrador.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Inicio</span></a>
+      </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Registro de Alumnos</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Registrar alumno:</h6>
-          <a class="dropdown-item" href="login.html">Editar Alumno</a>
-          <a class="dropdown-item" href="register.html">Eliminar Alumno</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Other Pages:</h6>
-          <a class="dropdown-item" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
-        </div>
+        <li class="nav-item">
+        <a class="nav-link" href="VentanaAdministrador.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Registro de Alumnos</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <li class="nav-item">
+        <a class="nav-link" href="VentanaAdministrador.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Modificar Alumnos</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <li class="nav-item">
+        <a class="nav-link" href="VentanaAdministrador.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Eliminar de Alumnos</span></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="VentanaConsultaAlum.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Consultar Alumnos</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="VentanaRegServicio.html">
@@ -111,19 +123,9 @@
           <span>Registro de Servicio</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="VentanaConsultaAlum.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Consultar Alumnos</span></a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="VentanaConsultaServicio.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Consultar Servicios</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
       </li>
     </ul>
 
@@ -131,60 +133,52 @@
 
       <div class="container-fluid">
 
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">Charts</li>
-        </ol>
-
-        <!-- Area Chart Example-->
+        <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fas fa-chart-area"></i>
-            Area Chart Example</div>
+            <i class="fas fa-table"></i>
+            Lista de Servicios</div>
           <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Nombre del Servicio</th>
+                    <th>Ubicación</th>
+                    <th>Descripción</th>
+                    <th>Encargado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Imss</td>
+                    <td>Calle Juarez Colonia Centro</td>
+                    <td>Actividades en programación para un sistema de archivero.......</td>
+                    <td>Doctor Luis Enrique Jefe de Administrativos</td>
+                    
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="card mb-3">
-              <div class="card-header">
-                <i class="fas fa-chart-bar"></i>
-                Bar Chart Example</div>
-              <div class="card-body">
-                <canvas id="myBarChart" width="100%" height="50"></canvas>
-              </div>
-              <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-            </div>
-          </div>
-        </div>
-
-        <p class="small text-center text-muted my-5">
-          <em>More chart examples coming soon...</em>
-        </p>
-
       </div>
-      <!-- /.container-fluid -->
-
-      <!-- Sticky Footer -->
+       <!-- Sticky Footer -->
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
+            <span>Copyright © SERVICIO SOCIAL 2019</span>
           </div>
         </div>
       </footer>
-
-    </div>
-    <!-- /.content-wrapper -->
-
-  </div>
-  <!-- /#wrapper -->
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
