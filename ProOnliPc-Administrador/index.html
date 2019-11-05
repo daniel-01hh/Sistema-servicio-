@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -54,7 +55,7 @@
         <div class="actions">
           <a href="#RegistroAlumnos" class="btn-services">Registrar Alumnos</a>
           <a href="#RegistroSS" class="btn-get-started">Registrar Servicio Social</a>
-          <a href="#ConsultarAlum" class="btn-get-started">Consultar Alumnos</a>
+          <a href="#ConsultarAlum""mostraralumnos.php" class="btn-get-started">Consultar Alumnos</a>
           <a href="#ConsultarSS" class="btn-get-started">Consultar Servicio Social</a>
           <a href="#Salir" class="btn-get-started">Salir</a>
         </div>
@@ -183,43 +184,16 @@
           <div class="section-title-divider"></div>
           <div class="card mb-3">
           <div class="card-header">
-            <i class="fas fa-table"></i>
-            Lista de alumnos</div>
+           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Matricula</th>
-                    <th>Alumno</th>
-                    <th>Telefono</th>
-                    <th>Semestre</th>
-                    <th>Promedio</th>
-                    <th>Creditos cursados</th>
-                    <th>Habilidades e Intereses</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>S160139944</td>
-                    <td>Adamari García Juan</td>
-                    <td>2281560411</td>
-                    <td>6°Semestre</td>
-                    <td>8.5</td>
-                    <td>240</td>
-                    <td>Diseño e interfaces</td>
-                  </tr>
-                  <tr>
-                    <td>S160139944</td>
-                    <td>Leonardo Galicia Meza</td>
-                    <td>2281552233</td>
-                    <td>6°Semestre</td>
-                    <td>8.6</td>
-                    <td>260</td>
-                    <td>Programacion y base de datos</td>
-                  </tr>
-                </tbody>
-              </table>
+             <div class= "formularioalumn">
+                 <label for="caja_busqueda"> Buscar:</label>
+                 <input type="text" name="caja_busqueda" id="caja_busqueda">
+             </div>
+             <div id="datos">
+                 
+             </div>
             </div>
           </div>
         </div>
@@ -303,6 +277,7 @@
 
   <!-- Template Specisifc Custom Javascript File -->
   <script src="js/custom.js"></script>
+   <script src="mostraralumnos.js"></script>
 
   <script src="contactform/contactform.js"></script>
 
