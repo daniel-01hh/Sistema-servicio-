@@ -25,11 +25,11 @@
 
  
  if ($count == 1) {
- echo "<br />". "El Nombre de Usuario ya a sido tomado." . "<br />";
- echo "<a href='index.html'>Por favor escoga otro Nombre</a>";
+    echo "<br />". "El Nombre de Usuario ya a sido tomado." . "<br />";
+    echo "<a href='index.html'>Por favor escoga otro Nombre</a>";
  }
  else{
- $query = "INSERT INTO solicitante (NumSolicitante, NombreSolicitante, Direccion, Encargado, PerfilSolicitado, Descripcion)
+    $query = "INSERT INTO solicitante (NumSolicitante, NombreSolicitante, Direccion, Encargado, PerfilSolicitado, Descripcion)
            VALUES ('$numero', '$nombre', '$direccion', '$encargado', '$perfil', '$descripcion')";
 
  if ($conexion->query($query) === TRUE) {
