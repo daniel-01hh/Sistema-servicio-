@@ -1,3 +1,8 @@
+<?php 
+
+	$conexion=mysqli_connect('85.10.205.173:3306','jorgeasantiago','lucho1234','serviciosocial01');
+
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -183,41 +188,49 @@
           <div class="section-title-divider"></div>
           <div class="card mb-3">
           <div class="card-header">
-            <i class="fas fa-table"></i>
-            Lista de alumnos</div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>Matricula</th>
-                    <th>Alumno</th>
-                    <th>Telefono</th>
-                    <th>Semestre</th>
-                    <th>Promedio</th>
-                    <th>Creditos cursados</th>
-                    <th>Habilidades e Intereses</th>
+                    <td>Matricula</td>
+				    <td>Nombre(s)</td>
+				    <td>Apellidos</td>
+				    <td>Correo</td>
+				    <td>Telefono</td>
+				    <td>NumFormulario</td>
+				    <td>NumSolicitante</td>
+				    <td>TotalReportes</td>
+				    <td>TotalHoras</td>
+				    <td>Editar</td>
+				    <td>Eliminar</td>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>S160139944</td>
-                    <td>Adamari García Juan</td>
-                    <td>2281560411</td>
-                    <td>6°Semestre</td>
-                    <td>8.5</td>
-                    <td>240</td>
-                    <td>Diseño e interfaces</td>
-                  </tr>
-                  <tr>
-                    <td>S160139944</td>
-                    <td>Leonardo Galicia Meza</td>
-                    <td>2281552233</td>
-                    <td>6°Semestre</td>
-                    <td>8.6</td>
-                    <td>260</td>
-                    <td>Programacion y base de datos</td>
-                  </tr>
+                  <?php 
+						$sql="SELECT * from solicitante";
+						$result=mysqli_query($conexion,$sql);
+
+						while($mostrar=mysqli_fetch_array($result)){
+						 ?>
+
+						<tr>
+							<td><?php echo $mostrar['Matricula'] ?></td>
+							<td><?php echo $mostrar['Nombre'] ?></td>
+							<td><?php echo $mostrar['Apellido'] ?></td>
+							<td><?php echo $mostrar['Correo'] ?></td>
+							<td><?php echo $mostrar['Telefono'] ?></td>
+							<td><?php echo $mostrar['NumFormulario'] ?></td>
+							<td><?php echo $mostrar['NumeSolicitante'] ?></td>
+              <td><?php echo $mostrar['TotalReportes'] ?></td>
+              <td><?php echo $mostrar['TotalHoras'] ?></td>
+              <td><button type="submit" class="btn btn-primary ">Editar</button></td>
+                    <!--<td><a href="#">Eliminar</a></td>-->
+                    <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
+						</tr>
+               <?php 
+					}
+					 ?>
                 </tbody>
               </table>
             </div>
@@ -242,34 +255,42 @@
           <h3 class="section-title">Consultar Servicios </h3>
           <div class="section-title-divider"></div>
           <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Lista de Servicios</div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>Nombre del Servicio</th>
-                    <th>Ubicación</th>
-                    <th>Descripción</th>
-                    <th>Encargado</th>
+                  <td>Numero Solicitante</td>
+							    <td>Nombre</td>
+							    <td>Direccion</td>
+							    <td>Encargado</td>
+							    <td>Perfil</td>	
+							    <td>Descripcion</td>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Imss</td>
-                    <td>Calle Juarez Colonia Centro</td>
-                    <td>Actividades en programación para un sistema de archivero.......</td>
-                    <td>Doctor Luis Enrique Jefe de Administrativos</td>
-                    
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+                <?php 
+						$sql="SELECT * from solicitante";
+						$result=mysqli_query($conexion,$sql);
+
+						while($mostrar=mysqli_fetch_array($result)){
+						 ?>
+
+						<tr>
+							<td><?php echo $mostrar['NumSolicitante'] ?></td>
+							<td><?php echo $mostrar['NombreSolicitante'] ?></td>
+							<td><?php echo $mostrar['Direccion'] ?></td>
+							<td><?php echo $mostrar['Encargado'] ?></td>
+							<td><?php echo $mostrar['PerfilSolicitado'] ?></td>
+              <td><?php echo $mostrar['Descripcion'] ?></td>
+              <td><button type="submit" class="btn btn-primary ">Editar</button></td>
+                    <!--<td><a href="#">Eliminar</a></td>-->
+                    <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
+						</tr>
+						</tr>
+					<?php 
+					}
+					 ?>
                 </tbody>
               </table>
             </div>
