@@ -1,3 +1,9 @@
+<?php 
+
+	$conexion=mysqli_connect('85.10.205.173:3306','jorgeasantiago','lucho1234','serviciosocial01');
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -64,31 +70,41 @@
         <div class="col-md-12">
           <h3 class="section-title">Empresas</h3>
           <div class="section-title-divider"></div>
-          <p class="section-description"> 
-                                                  En esta sección podrás encontrar toda la información referente a las empresas disponibles para servicio social.  
-          </p>
-          <p class="section-description"> 
-                                                  Centro de idiomas.
-          </p>
-          <p class="section-description"> 
-                                                  Facultad de informatica.
-          </p>
-          <p class="section-description"> 
-                                                  Facultad de economía.
-          </p>
-          <p class="section-description"> 
-                                                  En esta sección podrás encontrar toda la información referente a las empresas disponibles para servicio social.  
-          </p>
-          <p class="section-description"> 
-                                                  Centro de idiomas.
-          </p>
-          <p class="section-description"> 
-                                                  Facultad de informatica.
-          </p>
-          <p class="section-description"> 
-                                                  Facultad de economía.
+          
+          	<br>
 
-          </p>
+					<table border="1" >
+						<tr>
+							<td>numeroSolicitante</td>
+							<td>nombre</td>
+							<td>direccion</td>
+							<td>encargado</td>
+							<td>perfil</td>	
+							<td>descripcion</td>
+						</tr>
+
+						<?php 
+						$sql="SELECT * from solicitante";
+						$result=mysqli_query($conexion,$sql);
+
+						while($mostrar=mysqli_fetch_array($result)){
+						 ?>
+
+						<tr>
+							<td><?php echo $mostrar['NumSolicitante'] ?></td>
+							<td><?php echo $mostrar['NombreSolicitante'] ?></td>
+							<td><?php echo $mostrar['Direccion'] ?></td>
+							<td><?php echo $mostrar['Encargado'] ?></td>
+							<td><?php echo $mostrar['PerfilSolicitado'] ?></td>
+							<td><?php echo $mostrar['Descripcion'] ?></td>
+						</tr>
+					<?php 
+					}
+					 ?>
+					</table>
+
+
+
             <img src="img/Fac-informatica.jpg" alt="">
         </div>
       </div>
@@ -206,3 +222,4 @@
 </body>
 
 </html>
+
