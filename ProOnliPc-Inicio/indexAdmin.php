@@ -199,10 +199,10 @@
           <td>Apellidos</td>
           <td>Correo</td>
           <td>Telefono</td>
-          <td>NumFormulario</td>
-          <td>NumSolicitante</td>
-          <td>TotalReportes</td>
-          <td>TotalHoras</td>
+          <td>NFormulario</td>
+          <td>NSolicitante</td>
+          <td>Reportes</td>
+          <td>Horas</td>
           <td>Editar</td>
           <td>Eliminar</td>
                 </tr>
