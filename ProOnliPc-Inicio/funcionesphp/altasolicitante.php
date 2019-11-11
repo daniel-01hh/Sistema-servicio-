@@ -23,7 +23,7 @@
 
  
  if ($count == 1) {
- echo "<br />". "El Nombre de Usuario ya a sido tomado." . "<br />";
+ echo "<br />". "Los datos del solicitante ya existen." . "<br />";
  echo "<a href='index.html'>Por favor escoga otro Nombre</a>";
  }
  else{
