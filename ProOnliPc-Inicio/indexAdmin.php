@@ -209,7 +209,7 @@
               </thead>
               <tbody>
                 <?php 
-          $sql="SELECT * from solicitante";
+          $sql="SELECT Matricula,Nombre,Apellido,Correo,Telefono,NumFormulario,NumSolicitante,TotalReportes from alumno";
           $result=mysqli_query($conexion,$sql);
 
           while($mostrar=mysqli_fetch_array($result)){
@@ -222,7 +222,7 @@
             <td><?php echo $mostrar['Correo'] ?></td>
             <td><?php echo $mostrar['Telefono'] ?></td>
             <td><?php echo $mostrar['NumFormulario'] ?></td>
-            <td><?php echo $mostrar['NumeSolicitante'] ?></td>
+            <td><?php echo $mostrar['NumSolicitante'] ?></td>
             <td><?php echo $mostrar['TotalReportes'] ?></td>
             <td><?php echo $mostrar['TotalHoras'] ?></td>
             <td><button type="submit" class="btn btn-primary ">Editar
@@ -230,7 +230,7 @@
             </button></td>
                   <!--<td><a href="#">Eliminar</a></td>-->
                   <td><button type="submit" class="btn btn-primary ">Eliminar
-                    
+
                   </button></td>
           </tr>
              <?php 
@@ -271,6 +271,9 @@ Services Section
                 <td>Encargado</td>
                 <td>Perfil</td>	
                 <td>Descripcion</td>
+                <td>Editar</td>	
+                <td>Eliminar</td>
+
                 </tr>
               </thead>
               <tbody>
@@ -288,7 +291,7 @@ Services Section
             <td><?php echo $mostrar['Encargado'] ?></td>
             <td><?php echo $mostrar['PerfilSolicitado'] ?></td>
             <td><?php echo $mostrar['Descripcion'] ?></td>
-            <td><button type="submit" class="btn btn-primary ">Editar</button></td>
+            <td><button class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#modalEdicion"></button></td>
                   <!--<td><a href="#">Eliminar</a></td>-->
                   <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
           </tr>
