@@ -78,40 +78,40 @@
         <div class="col-md-12">
           <h3 class="section-title">Registro Alumnos</h3>
           <div class="section-title-divider"></div>
-          <form>
+          <form action="funcionesphp/altaalumno.php" method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
-    <label for="inputAddress2">Matricula</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Matricula">
+    <label for="inputAddress2">Ingrese la matricula del alumno</label>
+    <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matricula">
   </div>
      <div class="form-group col-md-6">
-      <label for="inputnombre4">Nombre</label>
-      <input type="text" class="form-control" id="inputnombre4" placeholder="Nombre">
+      <label for="inputnombre4">Ingrese nombre(s) del alumno</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputAPaterno">Apellido Paterno</label>
-      <input type="text" class="form-control" id="inputAPaterno" placeholder="Apellido Paterno">
+      <label for="inputAPaterno">Ingrese los apellidos del alumno</label>
+      <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellidos">
     </div>
     
     <div class="form-group col-md-6">
-      <label for="inputAMaterno">Apellido Materno</label>
-      <input type="text" class="form-control" id="inputAMaterno" placeholder="Apellido Materno">
+      <label for="inputAMaterno">Ingrese el correo</label>
+      <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo electronico">
     </div>
   </div>
   <div class="form-group col-md-6">
-    <label for="inputCorreo">Correo Electronico</label>
-    <input type="text" class="form-control" id="inputCorreo" placeholder="Correo Electronico">
+    <label for="inputCorreo">Ingresa el telefono</label>
+    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
   </div>
   <div class="form-group col-md-6">
-    <label for="inputTelefono">Telefono</label>
-    <input type="text" class="form-control" id="inputTelefono" placeholder="Telefono">
+    <label for="inputTelefono">Ingresa la contraseña</label>
+    <input type="text" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputSemestre">Semestre</label>
-      <input type="text" class="form-control" id="inputSemestre" placeholder="Semestre">
+      <label for="inputSemestre">Ingresar nombre del usuario</label>
+      <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
     </div>
-    <div class="form-group col-md-6">
+    <!--<div class="form-group col-md-6">
       <label for="inputPromedio">Promedio aproximado</label>
       <input type="text" class="form-control" id="inputPromedio" placeholder="Promedio Aproximado">
     </div>
@@ -122,9 +122,10 @@
     <div class="form-group col-md-6">
       <label for="inputPromedio">Habilidades e Intereses</label>
       <input type="text" class="form-control" id="inputPromedio" placeholder="Habilidades e Intereses">
-    </div>
+    </div>-->
   </div>
-  <button type="submit" class="btn btn-primary">Guardar</button>
+  <button type="submit" name="" id="" class="btn btn-primary "><lefth>Guardar</lefth></button>
+  
 </form>    
         </div>
       </div>
@@ -141,37 +142,37 @@
     <div class="container wow fadeInUp">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="section-title">Registros de Servicios Sociales </h3>
-          <div class="section-title-divider"></div>
-            <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-     <div class="form-group">
-    <label for="inputServicio">Nombre del Servicio</label>
-    <input type="text" class="form-control" id="inputServicio" placeholder="Nombre del Servicio">
-  </div>
-      <label for="inputUbicacion">Ubicación</label>
-      <input type="text" class="form-control" id="inputUbicacion" placeholder="Ubicación">
-    </div>   
-    <div class="form-group col-md-6">
-      <label for="inputDescripcion">Descripción</label>
-      <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripción">
-    </div>  
-    <div class="form-group col-md-6">
-      <label for="inputEncargado">Encargado</label>
-      <input type="text" class="form-control" id="inputEncargado" placeholder="Encargado">
-    </div>
-  </div>
-    <div class="form-group col-md-6">
-      <label for="inputDescripcion">Descripción</label>
-      <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripción">
-    </div>  
-    <div class="form-group col-md-6">
-      <label for="inputEncargado">Encargado</label>
-      <input type="text" class="form-control" id="inputEncargado" placeholder="Encargado">
-    </div>
-  <button type="submit" class="btn btn-primary "><lefth>Guardar</lefth></button>
-</form>  
+            <h3 class="section-title">Registros de Servicios Sociales </h3>
+            <div class="section-title-divider"></div>
+            <form action="funcionesphp/altasolicitante.php" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="form-group">
+                        <label for="inputServicio">Número de Servicio Social</label>
+                        <input type="text" class="form-control" id="numero" name="varnumero" placeholder="Número de Servicio Social">
+                    </div>
+                    <label for="inputUbicacion">Dirección</label>
+                    <input type="text" class="form-control" id="direccion" name="vardireccion" placeholder="Dirección">
+                </div>   
+                <div class="form-group col-md-6">
+                    <label for="inputDescripcion">Nombre del Servicio Social</label>
+                    <input type="text" class="form-control" id="nombre" name="varnombre" placeholder="Nombre del Servicio Social">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEncargado">Encargado del servicio</label>
+                    <input type="text" class="form-control" id="inputEncargado" name="varencargado" placeholder="Encargado del servicio">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputDescripcion">Perfil solicitado</label>
+                <input type="text" class="form-control" id="inputDescripcion" name="varperfil" placeholder="Perfil">
+            </div>  
+            <div class="form-group col-md-6">
+                <label for="inputEncargado">Descripción</label>
+                <input type="text" class="form-control" id="inputEncargado" name="vardesc" placeholder="Descripción">
+            </div>
+            <button type="submit" class="btn btn-primary "><lefth>Guardar</lefth></button>
+            </form>  
         </div>
       </div>
     </div>
@@ -181,11 +182,13 @@
   Subscrbe Section
   ============================-->
 <section id="ConsultarAlum">
+   
     <div class="container wow fadeInUp">
       <div class="row">
         <div class="col-md-12">
           <h3 class="section-title">Consultar Alumnos </h3>
           <div class="section-title-divider"></div>
+          <form action="mostraralumnos.php" method="post">
           <div class="card mb-3">
           <div class="card-header">
           <div class="card-body">
@@ -193,6 +196,7 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
+<<<<<<< HEAD:ProOnliPc-Inicio/indexAdmin.php~HEAD
                     <td>Matricula</td>
 				    <td>Nombre(s)</td>
 				    <td>Apellidos</td>
@@ -231,6 +235,39 @@
                <?php 
 					}
 					 ?>
+=======
+                    <th>Matricula</th>
+                    <th>Nombre(s)</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Contraseña</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>S160139944</td>
+                    <td>Adamari</td>
+                    <td>García Juan</td>
+                    <td>correo</td>
+                    <td>147</td>
+                    <td>148</td>
+                    <td><button type="submit" class="btn btn-primary ">Editar</button></td>
+                    <!--<td><a href="#">Eliminar</a></td>-->
+                    <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
+                  </tr>
+                  <tr>
+                    <td>S160139944</td>
+                    <td>Leonardo Galicia Meza</td>
+                    <td>2281552233</td>
+                    <td>6°Semestre</td>
+                    <td>8.6</td>
+                    <td>260</td>
+                    <td><button type="submit" class="btn btn-primary ">Editarr</button></td>
+                    <!--<td><a href="#">Eliminar</a></td>-->
+                    <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
+                  </tr>
+>>>>>>> altas:ProOnliPc-Inicio/indexAdmin.html
                 </tbody>
               </table>
             </div>
@@ -260,6 +297,7 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
+<<<<<<< HEAD:ProOnliPc-Inicio/indexAdmin.php~HEAD
                   <td>Numero Solicitante</td>
 							    <td>Nombre</td>
 							    <td>Direccion</td>
@@ -291,6 +329,36 @@
 					<?php 
 					}
 					 ?>
+=======
+                    <th>Clave Solicitante</th>
+                    <th>Solicitante</th>
+                    <th>Dirección</th>
+                    <th>Encargado</th>
+                    <th>Perfil solicitado</th>
+                    <th>Descripción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Imss</td>
+                    <td>Calle Juarez Colonia Centro</td>
+                    <td>Actividades en programación para un sistema de archivero.......</td>
+                    <td>Doctor Luis Enrique Jefe de Administrativos</td>
+                    <td>Actividades en programación para un sistema de archivero.......</td>
+                    <td>Doctor Luis Enrique Jefe de Administrativos</td>
+                    <td><button type="submit" class="btn btn-primary ">Editar</button></td>
+                    <!--<td><a href="#">Eliminar</a></td>-->
+                    <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+>>>>>>> altas:ProOnliPc-Inicio/indexAdmin.html
                 </tbody>
               </table>
             </div>

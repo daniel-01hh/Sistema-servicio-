@@ -5,8 +5,6 @@
   $encargado = $_POST['varencargado'];
   $perfil = $_POST['varperfil'];
   $descripcion = $_POST['vardesc'];
-
-
   
  $host = "85.10.205.173:3306";
  $user_db = "jorgeasantiago";
