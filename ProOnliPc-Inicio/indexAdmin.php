@@ -1,3 +1,8 @@
+<?php 
+
+	$conexion=mysqli_connect('85.10.205.173:3306','jorgeasantiago','lucho1234','serviciosocial01');
+
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -177,124 +182,134 @@
   Subscrbe Section
   ============================-->
 <section id="ConsultarAlum">
-    <div class="container wow fadeInUp">
-      <div class="row">
-        <div class="col-md-12">
-          <h3 class="section-title">Consultar Alumnos </h3>
-          <div class="section-title-divider"></div>
-          <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Lista de alumnos</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Matricula</th>
-                    <th>Nombre(s)</th>
-                    <th>Apellidos</th>
-                    <th>Correo</th>
-                    <th>Telefono</th>
-                    <th>Contraseña</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>S160139944</td>
-                    <td>Adamari</td>
-                    <td>García Juan</td>
-                    <td>correo</td>
-                    <td>147</td>
-                    <td>148</td>
-                    <td><button type="submit" class="btn btn-primary ">Editar</button></td>
-                    <!--<td><a href="#">Eliminar</a></td>-->
-                    <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
-                  </tr>
-                  <tr>
-                    <td>S160139944</td>
-                    <td>Leonardo Galicia Meza</td>
-                    <td>2281552233</td>
-                    <td>6°Semestre</td>
-                    <td>8.6</td>
-                    <td>260</td>
-                    <td><button type="submit" class="btn btn-primary ">Editarr</button></td>
-                    <!--<td><a href="#">Eliminar</a></td>-->
-                    <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+  <div class="container wow fadeInUp">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="section-title">Consultar Alumnos </h3>
+        <div class="section-title-divider"></div>
+        <div class="card mb-3">
+        <div class="card-header">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <td>Matricula</td>
+          <td>Nombre(s)</td>
+          <td>Apellidos</td>
+          <td>Correo</td>
+          <td>Telefono</td>
+          <td>NumFormulario</td>
+          <td>NumSolicitante</td>
+          <td>TotalReportes</td>
+          <td>TotalHoras</td>
+          <td>Editar</td>
+          <td>Eliminar</td>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+          $sql="SELECT * from solicitante";
+          $result=mysqli_query($conexion,$sql);
+
+          while($mostrar=mysqli_fetch_array($result)){
+           ?>
+
+          <tr>
+            <td><?php echo $mostrar['Matricula'] ?></td>
+            <td><?php echo $mostrar['Nombre'] ?></td>
+            <td><?php echo $mostrar['Apellido'] ?></td>
+            <td><?php echo $mostrar['Correo'] ?></td>
+            <td><?php echo $mostrar['Telefono'] ?></td>
+            <td><?php echo $mostrar['NumFormulario'] ?></td>
+            <td><?php echo $mostrar['NumeSolicitante'] ?></td>
+            <td><?php echo $mostrar['TotalReportes'] ?></td>
+            <td><?php echo $mostrar['TotalHoras'] ?></td>
+            <td><button type="submit" class="btn btn-primary ">Editar
+
+            </button></td>
+                  <!--<td><a href="#">Eliminar</a></td>-->
+                  <td><button type="submit" class="btn btn-primary ">Eliminar
+                    
+                  </button></td>
+          </tr>
+             <?php 
+        }
+         ?>
+              </tbody>
+            </table>
           </div>
         </div>
-
-      </div>
-           
-        </div>
       </div>
 
-      
-   
-  </section>
-    <!--==========================
-  Services Section
-  ============================-->
-  <section id="ConsultarSS">
-    <div class="container wow fadeInUp">
-      <div class="row">
-        <div class="col-md-12">
-          <h3 class="section-title">Consultar Servicios </h3>
-          <div class="section-title-divider"></div>
-          <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Lista de Servicios</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Clave Solicitante</th>
-                    <th>Solicitante</th>
-                    <th>Dirección</th>
-                    <th>Encargado</th>
-                    <th>Perfil solicitado</th>
-                    <th>Descripción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Imss</td>
-                    <td>Calle Juarez Colonia Centro</td>
-                    <td>Actividades en programación para un sistema de archivero.......</td>
-                    <td>Doctor Luis Enrique Jefe de Administrativos</td>
-                    <td>Actividades en programación para un sistema de archivero.......</td>
-                    <td>Doctor Luis Enrique Jefe de Administrativos</td>
-                    <td><button type="submit" class="btn btn-primary ">Editar</button></td>
-                    <!--<td><a href="#">Eliminar</a></td>-->
-                    <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-        </div>
+    </div>
+         
+      </div>
+    </div>
 
-      </div>
-        </div>
-      </div>
     
-      
-  </section>
+ 
+</section>
+  <!--==========================
+Services Section
+============================-->
+<section id="ConsultarSS">
+  <div class="container wow fadeInUp">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="section-title">Consultar Servicios </h3>
+        <div class="section-title-divider"></div>
+        <div class="card mb-3">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                <td>Numero Solicitante</td>
+                <td>Nombre</td>
+                <td>Direccion</td>
+                <td>Encargado</td>
+                <td>Perfil</td>	
+                <td>Descripcion</td>
+                </tr>
+              </thead>
+              <tbody>
+              <?php 
+          $sql="SELECT * from solicitante";
+          $result=mysqli_query($conexion,$sql);
+
+          while($mostrar=mysqli_fetch_array($result)){
+           ?>
+
+          <tr>
+            <td><?php echo $mostrar['NumSolicitante'] ?></td>
+            <td><?php echo $mostrar['NombreSolicitante'] ?></td>
+            <td><?php echo $mostrar['Direccion'] ?></td>
+            <td><?php echo $mostrar['Encargado'] ?></td>
+            <td><?php echo $mostrar['PerfilSolicitado'] ?></td>
+            <td><?php echo $mostrar['Descripcion'] ?></td>
+            <td><button type="submit" class="btn btn-primary ">Editar</button></td>
+                  <!--<td><a href="#">Eliminar</a></td>-->
+                  <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
+          </tr>
+          </tr>
+        <?php 
+        }
+         ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+
+    </div>
+      </div>
+    </div>
+  
+    
+</section>
+
 
   <!--==========================
   Subscrbe Section
