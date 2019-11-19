@@ -1,12 +1,13 @@
 <?php
-  $promedio = $_POST['promedio'];
-  $semestre = $_POST['semestre'];
-  $creditos = $_POST['creditos'];
-  $habilidades = $_POST['habilidades'];
-  $primera = $_POST['primera'];
-  $segunda = $_POST['segunda'];
-  $tercera = $_POST['tercera'];
-  $matricula = $_POST['matricula'];
+  $numero = $_POST['varnumero'];
+  $promedio = $_POST['varpromedio'];
+  $semestre = $_POST['varsemestre'];
+  $creditos = $_POST['varcreditos'];
+  $habilidades = $_POST['varhabilidades'];
+  $primera = $_POST['varprimera'];
+  $segunda = $_POST['varsegunda'];
+  $tercera = $_POST['vartercera'];
+  $matricula = $_POST['varmatricula'];
   
  $host = "85.10.205.173:3306";
  $user_db = "jorgeasantiago";
