@@ -89,10 +89,13 @@
       <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputAPaterno">Ingrese los apellidos del alumno</label>
-      <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellidos">
+      <label for="inputAPaterno">Ingrese el apellido paterno del alumno</label>
+      <input type="text" class="form-control" id="apellidop" name="apellidop" placeholder="Apellido Paterno">
     </div>
-    
+    <div class="form-group col-md-6">
+      <label for="inputAPaterno">Ingrese el apellido materno del alumno</label>
+      <input type="text" class="form-control" id="apellidom" name="apellidom" placeholder="Apellido Materno">
+    </div>
     <div class="form-group col-md-6">
       <label for="inputAMaterno">Ingrese el correo</label>
       <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo electronico">
@@ -195,21 +198,22 @@
               <thead>
                 <tr>
                   <td>Matricula</td>
-          <td>Nombre(s)</td>
-          <td>Apellidos</td>
-          <td>Correo</td>
-          <td>Telefono</td>
-          <td>NumFormulario</td>
-          <td>NumSolicitante</td>
-          <td>TotalReportes</td>
-          <td>TotalHoras</td>
-          <td>Editar</td>
-          <td>Eliminar</td>
+                  <td>Nombre(s)</td>
+                  <td>Apellido Paterno</td>
+                  <td>Apellido Materno</td>
+                  <td>Correo</td>
+                  <td>Telefono</td>
+                  <td>NumFormulario</td>
+                  <td>NumSolicitante</td>
+                  <td>TotalReportes</td>
+                  <td>TotalHoras</td>
+                  <td>Editar</td>
+                  <td>Eliminar</td>
                 </tr>
               </thead>
               <tbody>
                 <?php 
-          $sql="SELECT Matricula,Nombre,Apellido,Correo,Telefono,NumFormulario,NumSolicitante,TotalReportes from alumno";
+          $sql="SELECT Matricula, Nombre, ApellidoP, ApellidoM, Correo, Telefono, NumFormulario, NumSolicitante, TotalReportes, TotalHoras from alumno";
           $result=mysqli_query($conexion,$sql);
 
           while($mostrar=mysqli_fetch_array($result)){
@@ -218,7 +222,8 @@
           <tr>
             <td><?php echo $mostrar['Matricula'] ?></td>
             <td><?php echo $mostrar['Nombre'] ?></td>
-            <td><?php echo $mostrar['Apellido'] ?></td>
+            <td><?php echo $mostrar['ApellidoP'] ?></td>
+            <td><?php echo $mostrar['ApellidoM'] ?></td>
             <td><?php echo $mostrar['Correo'] ?></td>
             <td><?php echo $mostrar['Telefono'] ?></td>
             <td><?php echo $mostrar['NumFormulario'] ?></td>
@@ -247,7 +252,7 @@
       </div>
     </div>
 
-    
+    </div>  
  
 </section>
   <!--==========================
@@ -283,7 +288,6 @@ Services Section
 
           while($mostrar=mysqli_fetch_array($result)){
            ?>
-
           <tr>
             <td><?php echo $mostrar['NumSolicitante'] ?></td>
             <td><?php echo $mostrar['NombreSolicitante'] ?></td>
@@ -294,7 +298,6 @@ Services Section
             <td><button class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#modalEdicion"></button></td>
                   <!--<td><a href="#">Eliminar</a></td>-->
                   <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
-          </tr>
           </tr>
         <?php 
         }
