@@ -18,7 +18,7 @@
  if ($conexion->connect_error) {
  die("La conexion falló: " . $conexion->connect_error);
 }
- $buscarUsuario = "SELECT * FROM $tbl_name WHERE NumFormulario = '$numero' ";
+ $buscarUsuario = "SELECT * FROM $tbl_name WHERE matricula = '$matricula' ";
  $result = $conexion->query($buscarUsuario);
  
  $count = mysqli_num_rows($result);
@@ -27,17 +27,30 @@
  if ($count == 1) {
  echo "<br />". "El Nombre de Usuario ya a sido tomado." . "<br />";
  echo "<a href='index.html'>Por favor escoga otro Nombre</a>";
+ header('Location: http://localhost/ProOnliPc-inicio/Solicitud.php?alumno=' . $matricula . '&error=1');
  }
  else{
- $query = "INSERT INTO formulario (NumFormulario, Promedio, Semestre, Creditos, Habilidades, PrimeraOp, SegundaOp, TerceraOp, Matricula)
-           VALUES ('$numero', '$promedio', '$semestre', '$creditos', '$habilidades', '$primera', '$segunda', '$tercera', '$matricula')";
+ $query = "INSERT INTO formulario (Promedio, Semestre, Creditos, Habilidades, PrimeraOp, SegundaOp, TerceraOp, Matricula)
+           VALUES ('$promedio', '$semestre', '$creditos', '$habilidades', '$primera', '$segunda', '$tercera', '$matricula')";
 
  if ($conexion->query($query) === TRUE) {
  echo "<br />" . "<h2>" . "Formulario Creado Exitosamente!" . "</h2>";
- echo "<h4>" . "Bienvenido: " . $numero . "</h4>" . "\n\n";
+ echo "<h4>" . "Bienvenido: " . $matricula . "</h4>" . "\n\n";
  echo "<h5>" . "Hacer Login: " . "<a href='login.html'>Login</a>" . "</h5>";
- }
- else {
+
+
+$buscarUsuario = "SELECT NumFormulario FROM $tbl_name WHERE matricula = '$matricula' ";
+ $result = $conexion->query($buscarUsuario);
+   $row = $result->fetch_array(MYSQLI_ASSOC);
+
+  $form = $row['NumFormulario'];
+
+  $update = "UPDATE alumno SET NumFormulario='$form' WHERE Matricula = '$matricula'";
+$resultado = $conexion->query($update);
+
+ header('Location: http://localhost/ProOnliPc-inicio/indexAlumnos.php?alumno=' . $matricula . '&formulario=correcto');
+
+ } else {
  echo "Error al crear el usuario." . $query . "<br>" . $conexion->error;
    }
  }

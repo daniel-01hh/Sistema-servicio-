@@ -33,7 +33,7 @@ session_start();
     $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
     echo "Bienvenido! " . $_SESSION['username'];
     echo "<br><br><a href=panel-control.php>Panel de Control</a>"; 
-    header('Location: http://localhost/ProOnliPc-inicio/indexAlumno.html');//redirecciona a la pagina del usuario
+    header('Location: http://localhost/ProOnliPc-inicio/indexAlumnos.php?alumno=' . $user);//redirecciona a la pagina del usuario
 
  } else { 
    echo "Username o Password estan incorrectos.";
