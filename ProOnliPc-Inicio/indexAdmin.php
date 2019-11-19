@@ -6,6 +6,46 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<?php
+
+       function runMyFunction() {
+       $message = "Alumno editado correctamente";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+     }
+
+     if (isset($_GET['editaralumno'])) {
+          runMyFunction();
+     }    
+
+       function runMyFunctionS() {
+       $message = "Servicio editado correctamente";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+     }
+
+     if (isset($_GET['editarservicio'])) {
+          runMyFunctionS();
+     }
+
+        function eliminarAlumno() {
+       $message = "Alumno eliminado correctamente";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+     }
+
+     if (isset($_GET['eliminaralumno'])) {
+          eliminarAlumno();
+     }    
+
+       function eliminarServicio() {
+       $message = "Servicio eliminado correctamente";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+     }
+
+     if (isset($_GET['eliminarservicio'])) {
+          eliminarServicio();
+     }
+
+?>
+
 <head>
   <meta charset="utf-8">
   <title>Administrador </title>
@@ -43,6 +83,9 @@
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/functions.js"></script>
+
 </head>
 
 <body>
@@ -57,11 +100,11 @@
 
         <h1>Administrador</h1>
         <div class="actions">
-          <a href="#RegistroAlumnos" class="btn-services">Registrar Alumnos</a>
+          <a href="#RegistroAlumnos" class="btn-get-started">Registrar Alumnos</a>
           <a href="#RegistroSS" class="btn-get-started">Registrar Servicio Social</a>
           <a href="#ConsultarAlum" class="btn-get-started">Consultar Alumnos</a>
           <a href="#ConsultarSS" class="btn-get-started">Consultar Servicio Social</a>
-          <a href="#Salir" class="btn-get-started">Salir</a>
+          <a href="index.html" class="btn-get-started">Cerrar Sesion</a>
         </div>
       </div>
     </div>
@@ -196,7 +239,8 @@
                 <tr>
                   <td>Matricula</td>
           <td>Nombre(s)</td>
-          <td>Apellidos</td>
+          <td>Apellido Paterno</td>
+          <td>Apellido Materno</td>
           <td>Correo</td>
           <td>Telefono</td>
           <td>NumFormulario</td>
@@ -209,29 +253,28 @@
               </thead>
               <tbody>
                 <?php 
-          $sql="SELECT Matricula,Nombre,Apellido,Correo,Telefono,NumFormulario,NumSolicitante,TotalReportes from alumno";
+          $sql="SELECT Matricula,Nombre,ApellidoP,ApellidoM,Correo,Telefono,NumFormulario,NumSolicitante,TotalReportes,TotalHoras from alumno";
           $result=mysqli_query($conexion,$sql);
 
           while($mostrar=mysqli_fetch_array($result)){
            ?>
 
           <tr>
-            <td><?php echo $mostrar['Matricula'] ?></td>
+                <?php 
+                $mat = $mostrar['Matricula'];
+                ?>
+            <td id="matricula"><?php echo $mostrar['Matricula'] ?></td>
             <td><?php echo $mostrar['Nombre'] ?></td>
-            <td><?php echo $mostrar['Apellido'] ?></td>
+            <td><?php echo $mostrar['ApellidoP'] ?></td>
+             <td><?php echo $mostrar['ApellidoM'] ?></td>
             <td><?php echo $mostrar['Correo'] ?></td>
             <td><?php echo $mostrar['Telefono'] ?></td>
             <td><?php echo $mostrar['NumFormulario'] ?></td>
             <td><?php echo $mostrar['NumSolicitante'] ?></td>
             <td><?php echo $mostrar['TotalReportes'] ?></td>
             <td><?php echo $mostrar['TotalHoras'] ?></td>
-            <td><button type="submit" class="btn btn-primary ">Editar
-
-            </button></td>
-                  <!--<td><a href="#">Eliminar</a></td>-->
-                  <td><button type="submit" class="btn btn-primary ">Eliminar
-
-                  </button></td>
+            <td><a href='tablaModAlumno.php?matricula=<?php echo $mat ?>' class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" id="editar"></a></td>
+            <td><a href='eliminar.php?matricula=<?php echo $mat ?>' class="btn btn-primary " id="eliminar">Eliminar</a></td>  
           </tr>
              <?php 
         }
@@ -285,15 +328,17 @@ Services Section
            ?>
 
           <tr>
+                <?php 
+                $mat = $mostrar['NumSolicitante'];
+                ?>
             <td><?php echo $mostrar['NumSolicitante'] ?></td>
             <td><?php echo $mostrar['NombreSolicitante'] ?></td>
             <td><?php echo $mostrar['Direccion'] ?></td>
             <td><?php echo $mostrar['Encargado'] ?></td>
             <td><?php echo $mostrar['PerfilSolicitado'] ?></td>
             <td><?php echo $mostrar['Descripcion'] ?></td>
-            <td><button class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#modalEdicion"></button></td>
-                  <!--<td><a href="#">Eliminar</a></td>-->
-                  <td><button type="submit" class="btn btn-primary ">Eliminar</button></td>
+            <td><a href='tablaServicio.php?numero=<?php echo $mat ?>' class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" id="editar"></a></td>
+            <td><a href='eliminarservicio.php?numero=<?php echo $mat ?>' class="btn btn-primary " id="eliminar">Eliminar</a></td> 
           </tr>
           </tr>
         <?php 

@@ -1,6 +1,20 @@
 <?php 
 
 	$conexion=mysqli_connect('85.10.205.173:3306','jorgeasantiago','lucho1234','serviciosocial01');
+  $user = $_GET['alumno'];
+  $sql="SELECT * from alumno where Matricula= '$user'";
+  $result=mysqli_query($conexion,$sql);
+  $row = $result->fetch_array(MYSQLI_ASSOC);
+
+      function runMyFunction() {
+       $message = "formulario registrado correctamente";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+     }
+
+     if (isset($_GET['formulario'])) {
+          runMyFunction();
+       }
+
 
  ?>
 
@@ -47,13 +61,13 @@
           <img class="" src="img/Logo.png" alt="ProOnliPc">
         </div>
 
-        <h1>Bienvenidos a tus datos de servicio social</h1>
+        <h1>Bienvenido <?php echo $row['Nombre'] ?> a tus datos de servicio social</h1>
         <h2>Encontraras <span class="rotating">Total de horas, Lugares disponibles para servicio, algunas cosas mas</span></h2>
         <div class="actions">
-          <a href="#Empresas" class="btn-get-started">Empresas</a>
-          <a href="#solicitud" class="btn-services">Formatos</a>
-          <a href="#Horas" class="btn-get-started">Total horas</a>
-          <a href="#Salir" class="btn-get-started">Salir</a>
+          <a href="#Empresas" id="btnempresa" class="btn-get-started">Empresas</a>
+          <a href="#solicitud" class="btn-get-started">Formatos</a>
+          <a href="#Horas" class="btn-get-started">Horas Totales</a>
+          <a href="index.html" class="btn-get-started">Cerrar Sesion</a>
         </div>
       </div>
     </div>
@@ -63,56 +77,62 @@
  
   About Section
   ============================-->
-  <section id="Empresas">
+  <section id="ConsultarSS">
+  <div class="container wow fadeInUp">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="section-title">Consultar Servicios </h3>
+        <div class="section-title-divider"></div>
+        <div class="card mb-3">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                <td>Numero Solicitante</td>
+                <td>Nombre</td>
+                <td>Direccion</td>
+                <td>Encargado</td>
+                <td>Perfil</td>	
+                <td>Descripcion</td>
+                </tr>
+              </thead>
+              <tbody>
+              <?php 
+          $sql="SELECT * from solicitante";
+          $result=mysqli_query($conexion,$sql);
 
-    <div class="container wow fadeInUp">
-      <div class="row">
-        <div class="col-md-12">
-          <h3 class="section-title">Empresas</h3>
-          <div class="section-title-divider"></div>
-          
-          	<br>
+          while($mostrar=mysqli_fetch_array($result)){
+           ?>
 
-					<table border="1" >
-						<tr>
-							<td>numeroSolicitante</td>
-							<td>nombre</td>
-							<td>direccion</td>
-							<td>encargado</td>
-							<td>perfil</td>	
-							<td>descripcion</td>
-						</tr>
-
-						<?php 
-						$sql="SELECT * from solicitante";
-						$result=mysqli_query($conexion,$sql);
-
-						while($mostrar=mysqli_fetch_array($result)){
-						 ?>
-
-						<tr>
-							<td><?php echo $mostrar['NumSolicitante'] ?></td>
-							<td><?php echo $mostrar['NombreSolicitante'] ?></td>
-							<td><?php echo $mostrar['Direccion'] ?></td>
-							<td><?php echo $mostrar['Encargado'] ?></td>
-							<td><?php echo $mostrar['PerfilSolicitado'] ?></td>
-							<td><?php echo $mostrar['Descripcion'] ?></td>
-						</tr>
-					<?php 
-					}
-					 ?>
-					</table>
-
-
-
-            <img src="img/Fac-informatica.jpg" alt="">
+          <tr>
+                <?php 
+                $mat = $mostrar['NumSolicitante'];
+                ?>
+            <td><?php echo $mostrar['NumSolicitante'] ?></td>
+            <td><?php echo $mostrar['NombreSolicitante'] ?></td>
+            <td><?php echo $mostrar['Direccion'] ?></td>
+            <td><?php echo $mostrar['Encargado'] ?></td>
+            <td><?php echo $mostrar['PerfilSolicitado'] ?></td>
+            <td><?php echo $mostrar['Descripcion'] ?></td> 
+            </tr>
+          </tr>
+        <?php 
+        }
+         ?>
+              </tbody>
+            </table>
+          </div>
         </div>
+        <a href='Solicitud.php?alumno=<?php echo $user ?>' class="btn btn-primary " id="eliminar">Llenar formato de solicitud</a>
+      </div>
+
+    </div>
       </div>
     </div>
-   
-
-   
-  </section>
+  
+    
+</section>
 
   <!--==========================
   Services Section
@@ -128,35 +148,35 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4 service-item">
+      <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-desktop"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Formato de solicitud</a></h4>
-          <p class="service-description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+          <p class="service-description">Voluptatum deleniti atque corrupti quos dolorest</p>
         </div>
         <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-bar-chart"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Reporte mensual del servicio</a></h4>
-          <p class="service-description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+          <p class="service-description">Minim veniam, quis nostrud exercitation ullamco laboris nis</p>
         </div>
         <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-paper-plane"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Formato de aceptación</a></h4>
-          <p class="service-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+          <p class="service-description">Duis aute irure dolor in reprehenderit in voluptate velitr</p>
         </div>
         <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-photo"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Formato de actividades</a></h4>
-          <p class="service-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+          <p class="service-description">Excepteur sint occaecat cupidatat non proident</p>
         </div>
         <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-road"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Total de reportes</a></h4>
-          <p class="service-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+          <p class="service-description">At vero eos et accusamus et iusto odio dignissimos ducimus</p>
         </div>
         <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-shopping-bag"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Otros</a></h4>
-          <p class="service-description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+          <p class="service-description">Et harum quidem rerum facilis est et</p>
         </div>
       </div>
     </div>
@@ -173,28 +193,35 @@
     <div class="container wow fadeInUp">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="section-title">Formatos </h3>
+          <h3 class="section-title">Horas y Reportes </h3>
           <div class="section-title-divider"></div>
           <p class="section-description">En esta sección podrás ver el total de horas cumplidas </p>
-           <img src="img/horastotal.png" alt="">
         </div>
       </div>
+ 
 
-      
-    </div>
-  </section>
-  <section id="Salir">
-    <div class="hero-container">
-      <div class="wow fadeIn">
-        <div class="hero-logo">
-          <img class="" src="img/Logo.png" alt="ProOnliPc">
+    <div class="row">
+        <div class="col-md-4 service-item">
+          <div class="service-icon"><i class="fa fa-bar-chart"></i></div>
+          <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Horas Acumuladaas</a></h4>
+          <h1 class="service-title"><?php echo $row['TotalHoras'] ?></h1>
         </div>
-        <div class="actions">
-           <h1><a href="../ProOnliPc1/index.html" title="Mi enlace">Salir</a><h1>
+        <div class="col-md-4 service-item">
+          <div class="service-icon"><i class="fa fa-bar-chart"></i></div>
+          <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Horas Faltantes</a></h4>
+          <h1 class="service-title"><?php echo 480-$row['TotalHoras'] ?></h1>
         </div>
+        <div class="col-md-4 service-item">
+          <div class="service-icon"><i class="fa fa-paper-plane"></i></div>
+          <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Reportes Totales</a></h4>
+          <h1 class=""><?php echo $row['TotalReportes'] ?></h1>
+        </div>
+
+
       </div>
-    </div>
+     </div>
   </section>
+
 
   <!--==========================
   Subscrbe Section
@@ -217,6 +244,24 @@
   <script src="js/custom.js"></script>
 
   <script src="contactform/contactform.js"></script>
+
+  <?php 
+      $sql="SELECT * from formulario where Matricula= '$user'";
+      $result=mysqli_query($conexion,$sql);
+      $count = mysqli_num_rows($result);
+
+      if ($count>0) {
+
+   ?>
+
+  <script>
+                document.getElementById("ConsultarSS").classList.add('hidden');
+                document.getElementById("btnempresa").classList.add('hidden');
+  </script>
+
+    <?php 
+      }
+     ?>
 
 
 </body>
