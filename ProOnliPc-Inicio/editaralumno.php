@@ -31,6 +31,6 @@
  else {
  echo "Error al crear el usuario.".$buscarUsuario."<br>".$conexion->error;
  }
- header('Location: http://localhost/ProOnliPc-Inicio/ProOnliPc-inicio/indexAdmin.php?editaralumno=correcto');
+ header('Location: http://localhost/ProOnliPc-inicio/indexAdmin.php?editaralumno=correcto');
  mysqli_close($conexion);
 ?>

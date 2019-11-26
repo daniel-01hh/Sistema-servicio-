@@ -22,7 +22,7 @@
 
  if ($conexion->query($buscarUsuario) === TRUE) {
  echo "<br />"."<h2>"."Usuario editado Exitosamente!"."</h2>";
-
+ header('Location: http://localhost/ProOnliPc-inicio/indexAdmin.php?editarservicio=correcto');
  /*echo "<h4>"."Bienvenido: ".$nombre."</h4>"."\n\n";
  echo "<h5>"."Hacer Login: "."<a href='login.html'>Login</a>"."</h5>";
  echo"<script type=\"text/javascript\">alert('Los datos del alumno son correctos'); window.location='indexAdmin.html';</script>"; */
@@ -30,6 +30,5 @@
  else {
  echo "Error al crear el usuario.".$buscarUsuario."<br>".$conexion->error;
  }
- header('Location: http://localhost/ProOnliPc-inicio/ProOnliPc-inicio/indexAdmin.php?editarservicio=correcto');
  mysqli_close($conexion);
 ?>

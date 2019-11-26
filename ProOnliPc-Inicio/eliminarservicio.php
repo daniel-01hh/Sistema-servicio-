@@ -21,7 +21,7 @@ session_start();
    
    $delete = "delete FROM $tbl_solicitante WHERE NumSolicitante = '$user'";
    $result = $conexion->query($delete);
-  header('Location: http://localhost/ProOnliPc-inicio/ProOnliPc-inicio/indexAdmin.php?eliminarservicio=correcto');//redirecciona a la pagina del usuario
+  header('Location: http://localhost/ProOnliPc-inicio/indexAdmin.php?eliminarservicio=correcto');//redirecciona a la pagina del usuario
 
 
 

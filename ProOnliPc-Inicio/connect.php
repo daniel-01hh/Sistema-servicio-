@@ -21,7 +21,7 @@ session_start();
    }
 
    
-   $sql = "SELECT * FROM $tbl_alumno WHERE Usuario = '$user'";
+   $sql = "SELECT * FROM $tbl_alumno WHERE Matricula = '$user'";
    $result = $conexion->query($sql);
    if ($result->num_rows > 0) {     }
    $row = $result->fetch_array(MYSQLI_ASSOC);
@@ -57,7 +57,7 @@ session_start();
     $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
     echo "Bienvenido! " . $_SESSION['username'];
     echo "<br><br><a href=panel-control.php>Panel de Control</a>"; 
-    header('Location: http://localhost/ProOnliPc-Inicio/indexAdmin.php');//redirecciona a la pagina del usuario
+    header('Location: http://localhost/ProOnliPc-inicio/indexAdmin.php');//redirecciona a la pagina del usuario
 
  } else { 
    echo "Username o Password estan incorrectos.";

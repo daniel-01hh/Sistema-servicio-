@@ -5,6 +5,7 @@
   $sql="SELECT * from alumno where Matricula= '$user'";
   $result=mysqli_query($conexion,$sql);
   $row = $result->fetch_array(MYSQLI_ASSOC);
+  $estado = false;
 
       function runMyFunction() {
        $message = "formulario registrado correctamente";
@@ -15,7 +16,26 @@
           runMyFunction();
        }
 
+      function Asignado() {
+       $message = "Ya has sido asignado a un servicio social";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+         echo "<script type='text/javascript'>alert('$message');</script>";
+     }
 
+     if (isset($_GET['asignado'])) {
+          Asignado();
+       }
+
+       function Reporte() {
+       $message = "Ya puedes realizar tu reporte";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+       global $estado;  
+       $estado = true;
+     }
+
+     if (isset($_GET['reporte'])) {
+          Reporte();
+       }
  ?>
 
 <!DOCTYPE html>
@@ -134,6 +154,39 @@
     
 </section>
 
+
+
+<?php 
+  if ($estado==true) {
+    ?>
+      <section id="Reporte">
+    <div class="container wow fadeInUp">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">Realizar reporte de este mes</h3>
+          <div class="section-title-divider"></div>
+          <a href='reportes.php?alumno=<?php echo $user ?>' class="btn btn-primary ml-4" id="eliminar">Generar Reporte</a>
+        </div>
+      </div>
+
+     </div>
+  </section>
+
+<?php
+
+  }
+
+ ?>
+ 
+
+
+
+
+
+
+
+
+
   <!--==========================
   Services Section
   ============================-->
@@ -151,22 +204,27 @@
       <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-desktop"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Formato de solicitud</a></h4>
+          <p class="service-description">Voluptatum deleniti atque corrupti quos dolorest</p>
         </div>
         <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-bar-chart"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Reporte mensual del servicio</a></h4>
+          <p class="service-description">Minim veniam, quis nostrud exercitation ullamco laboris nis</p>
         </div>
         <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-paper-plane"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Formato de aceptación</a></h4>
+          <p class="service-description">Duis aute irure dolor in reprehenderit in voluptate velitr</p>
         </div>
         <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-photo"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Formato de actividades</a></h4>
+          <p class="service-description">Excepteur sint occaecat cupidatat non proident</p>
         </div>
         <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-road"></i></div>
           <h4 class="service-title"><a href="PDF/hola.PDF"  download="formato1.pdf">Total de reportes</a></h4>
+          <p class="service-description">At vero eos et accusamus et iusto odio dignissimos ducimus</p>
         </div>
         <div class="col-md-4 service-item">
           <div class="service-icon"><i class="fa fa-shopping-bag"></i></div>

@@ -79,42 +79,35 @@
   <div class="form-row">
     <div class="form-group col-md-6">
     <label for="inputAddress2">Matricula</label>
-    <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matricula">
+    <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matricula" maxlength="9" minlength="9" required> 
   </div>
      <div class="form-group col-md-6">
       <label for="inputnombre4">Nombre(s)</label>
-      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputAPaterno">Apellido Paterno </label>
-      <input type="text" class="form-control" id="apellidoP" name="apellidop" placeholder="Apellido Paterno">
+      <input type="text" class="form-control" id="apellidoP" name="apellidop" placeholder="Apellido Paterno" required>
     </div>
     
     <div class="form-group col-md-6">
       <label for="inputAMaterno">Apellido Materno</label>
-      <input type="text" class="form-control" id="apellidoM" name="apellidom" placeholder="Apellido Materno">
+      <input type="text" class="form-control" id="apellidoM" name="apellidom" placeholder="Apellido Materno" required>
     </div>
 
     <div class="form-group col-md-6">
       <label for="inputAMaterno">Correo</label>
-      <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo Electronico">
+      <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electronico" required>
     </div>
   </div>
 
   <div class="form-group col-md-6">
     <label for="inputCorreo">Telefono</label>
-    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="telefono">
+    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Telefono" maxlength="10" minlength="10" required>
   </div>
   <div class="form-group col-md-6">
     <label for="inputTelefono">Contraseña</label>
-    <input type="text" class="form-control" id="contraseña" name="contraseña" placeholder="Contraseña">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputSemestre">Numero del usuario</label>
-      <input type="text" class="form-control" id="inputSemestre" placeholder="Semestre">
-    </div>
-  
+    <input type="text" class="form-control" id="contraseña" name="contraseña" placeholder="Contraseña" required>
   </div>
   <button type="submit" class="btn btn-primary">Guardar</button>
 </form>    

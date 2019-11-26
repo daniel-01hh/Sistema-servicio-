@@ -1,5 +1,4 @@
 <?php
-  $numero = $_POST['varnumero'];
   $nombre = $_POST['varnombre'];
   $direccion = $_POST['vardireccion'];
   $encargado = $_POST['varencargado'];
@@ -27,10 +26,11 @@
  echo "<a href='index.html'>Por favor escoga otro Nombre</a>";
  }
  else{
- $query = "INSERT INTO solicitante (NumSolicitante, NombreSolicitante, Direccion, Encargado, PerfilSolicitado, Descripcion)
-           VALUES ('$numero', '$nombre', '$direccion', '$encargado', '$perfil', '$descripcion')";
+ $query = "INSERT INTO solicitante (NombreSolicitante, Direccion, Encargado, PerfilSolicitado, Descripcion)
+           VALUES ('$nombre', '$direccion', '$encargado', '$perfil', '$descripcion')";
 
  if ($conexion->query($query) === TRUE) {
+  header('Location: http://localhost/ProOnliPc-inicio/indexAdmin.php?altaservicio=correcto');
  echo "<br />" . "<h2>" . "Solicitante Creado Exitosamente!" . "</h2>";
  echo "<h4>" . "Bienvenido: " . $nombre . "</h4>" . "\n\n";
  echo "<h7>" . "Regresar" . "<a href='indexAdmin.php'>Login</a>" . "</h5>";

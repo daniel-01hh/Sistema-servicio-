@@ -44,6 +44,33 @@
           eliminarServicio();
      }
 
+       function altaAlumno() {
+       $message = "Alumno ingresado correctamente";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+     }
+
+     if (isset($_GET['altaalumno'])) {
+          altaAlumno();
+     }  
+
+       function altaServicio() {
+       $message = "Servicio Social ingresado correctamente";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+     }
+
+     if (isset($_GET['altaservicio'])) {
+          altaservicio();
+     }  
+
+       function asignarAlumno() {
+       $message = "Alumno asignado correctamente";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+     }
+
+     if (isset($_GET['asignaralumno'])) {
+          asignarAlumno();
+     }    
+
 ?>
 
 <head>
@@ -125,54 +152,38 @@
   <div class="form-row">
     <div class="form-group col-md-6">
     <label for="inputAddress2">Ingrese la matricula del alumno</label>
-    <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matricula">
+    <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matricula" maxlength="9" minlength="9" required> 
   </div>
      <div class="form-group col-md-6">
       <label for="inputnombre4">Ingrese nombre(s) del alumno</label>
-      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputAPaterno">Ingrese el apellido paterno del alumno</label>
-      <input type="text" class="form-control" id="apellido" name="apellidop" placeholder="Apellido Paterno">
+      <input type="text" class="form-control" id="paterno" name="paterno" placeholder="Apellidos" required>
     </div>
     <div class="form-group col-md-6">
-      <label for="inputAPaterno">Ingrese el apellido materno del alumno</label><
-      <input type="text" class="form-control" id="apellido" name="apellidom" placeholder="Apellido Materno">
+      <label for="inputAPaterno">Ingrese el apellido materno del alumno</label>
+      <input type="text" class="form-control" id="materno" name="materno" placeholder="Apellidos" required>
     </div>
+    
     <div class="form-group col-md-6">
-      <label for="inputAMaterno">Ingrese el correo</label>
-      <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo electronico">
+      <label for="inputAMaterno">Ingrese el correo del alumno</label>
+      <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electronico" required>
     </div>
   </div>
   <div class="form-group col-md-6">
-    <label for="inputCorreo">Ingresa el telefono</label>
-    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
+    <label for="inputCorreo">Ingresa el telefono del alumno</label>
+    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Telefono" maxlength="10" minlength="10" required>
   </div>
   <div class="form-group col-md-6">
-    <label for="inputTelefono">Ingresa la contraseña</label>
-    <input type="text" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña">
+    <label for="inputTelefono">Ingrese la contraseña predeterminada para el alumno</label>
+    <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputSemestre">Ingresar nombre del usuario</label>
-      <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
-    </div>
-    <!--<div class="form-group col-md-6">
-      <label for="inputPromedio">Promedio aproximado</label>
-      <input type="text" class="form-control" id="inputPromedio" placeholder="Promedio Aproximado">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPromedio">Creditos cursados</label>
-      <input type="text" class="form-control" id="inputPromedio" placeholder="Creditos cursados">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPromedio">Habilidades e Intereses</label>
-      <input type="text" class="form-control" id="inputPromedio" placeholder="Habilidades e Intereses">
-    </div>-->
   </div>
   <button type="submit" name="" id="" class="btn btn-primary "><lefth>Guardar</lefth></button>
-  
-</form>    
+  </form>    
         </div>
       </div>
     </div>
@@ -192,30 +203,27 @@
             <div class="section-title-divider"></div>
             <form action="altasolicitante.php" method="post">
             <div class="form-row">
-                <div class="form-group col-md-6">
-                    <div class="form-group">
-                        <label for="inputServicio">Número de Servicio Social</label>
-                        <input type="text" class="form-control" id="numero" name="varnumero" placeholder="Número de Servicio Social">
+              
+                    <div class="form-group col-md-6">
+                      <label for="inputDescripcion">Nombre del Servicio Social</label>
+                      <input type="text" class="form-control" id="nombre" name="varnombre" placeholder="Nombre del Servicio Social" required>
                     </div>
-                    <label for="inputUbicacion">Dirección</label>
-                    <input type="text" class="form-control" id="direccion" name="vardireccion" placeholder="Dirección">
-                </div>   
-                <div class="form-group col-md-6">
-                    <label for="inputDescripcion">Nombre del Servicio Social</label>
-                    <input type="text" class="form-control" id="nombre" name="varnombre" placeholder="Nombre del Servicio Social">
-                </div>
-                <div class="form-group col-md-6">
+                    <div class="form-group col-md-6">
+                      <label for="inputUbicacion">Dirección</label>
+                      <input type="text" class="form-control" id="direccion" name="vardireccion" placeholder="Dirección" required>
+                  </div>   
+                 <div class="form-group col-md-6">
                     <label for="inputEncargado">Encargado del servicio</label>
-                    <input type="text" class="form-control" id="inputEncargado" name="varencargado" placeholder="Encargado del servicio">
+                    <input type="text" class="form-control" id="inputEncargado" name="varencargado" placeholder="Encargado del servicio" required>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <label for="inputDescripcion">Perfil solicitado</label>
-                <input type="text" class="form-control" id="inputDescripcion" name="varperfil" placeholder="Perfil">
+                <input type="text" class="form-control" id="inputDescripcion" name="varperfil" placeholder="Perfil" required>
             </div>  
             <div class="form-group col-md-6">
                 <label for="inputEncargado">Descripción</label>
-                <input type="text" class="form-control" id="inputEncargado" name="vardesc" placeholder="Descripción">
+                <input type="text" class="form-control" id="inputEncargado" name="vardesc" placeholder="Descripción" required>
             </div>
             <button type="submit" class="btn btn-primary "><lefth>Guardar</lefth></button>
             </form>  
@@ -246,10 +254,10 @@
           <td>Apellido Materno</td>
           <td>Correo</td>
           <td>Telefono</td>
-          <td>NFormulario</td>
-          <td>NSolicitante</td>
-          <td>TReportes</td>
-          <td>THoras</td>
+          <td>Formulario</td>
+          <td>Servicio Social</td>
+          <td>Reportes</td>
+          <td>Horas</td>
           <td>Editar</td>
           <td>Eliminar</td>
                 </tr>
@@ -272,12 +280,41 @@
              <td><?php echo $mostrar['ApellidoM'] ?></td>
             <td><?php echo $mostrar['Correo'] ?></td>
             <td><?php echo $mostrar['Telefono'] ?></td>
-            <td><?php echo $mostrar['NumFormulario'] ?></td>
-            <td><?php echo $mostrar['NumSolicitante'] ?></td>
+            <?php 
+            if ($mostrar['NumFormulario']>0) {
+               ?>
+              <td><a href='pdf.php?numero=<?php echo $mat ?>' class="btn btn-primary " id="eliminar">Ver formulario</a></td> 
+            <?php 
+            }else{
+               ?>
+              <td>El alumno no ha llenado el formulario</td> 
+            <?php 
+            }
+            ?>
+
+             <?php 
+            if ($mostrar['NumSolicitante']==1) {
+               ?>
+              <td><a href='asignarAlumno.php?matricula=<?php echo $mat ?>' class="btn btn-primary glyphicon glyphicon-plus" id="eliminar">Asignar</a></td> 
+            <?php 
+            }else{
+
+                $numero = $mostrar['NumSolicitante'];
+                $datosalumno = "select * from solicitante WHERE  NumSolicitante= '$numero'";
+                $resultado= $conexion->query($datosalumno);
+                $row = $resultado->fetch_array(MYSQLI_ASSOC);
+                $nombre = $row['NombreSolicitante'];
+               ?>
+            <td><?php echo $nombre ?></td>
+            <?php 
+            }
+            ?>
+
+
             <td><?php echo $mostrar['TotalReportes'] ?></td>
             <td><?php echo $mostrar['TotalHoras'] ?></td>
             <td><a href='tablaModAlumno.php?matricula=<?php echo $mat ?>' class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" id="editar"></a></td>
-            <td><a href='eliminar.php?matricula=<?php echo $mat ?>' class="btn btn-primary glyphicon glyphicon-trash " id="eliminar"></a></td>  
+            <td><a href='eliminar.php?matricula=<?php echo $mat ?>' class="btn btn-danger  glyphicon glyphicon-remove" id="eliminar"></a></td>  
           </tr>
              <?php 
         }
@@ -341,7 +378,7 @@ Services Section
             <td><?php echo $mostrar['PerfilSolicitado'] ?></td>
             <td><?php echo $mostrar['Descripcion'] ?></td>
             <td><a href='tablaServicio.php?numero=<?php echo $mat ?>' class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" id="editar"></a></td>
-            <td><a href='eliminarservicio.php?numero=<?php echo $mat ?>' class="btn btn-primary glyphicon glyphicon-trash " id="eliminar"></a></td> 
+            <td><a href='eliminarservicio.php?numero=<?php echo $mat ?>' class="btn btn-danger glyphicon glyphicon-remove" id="eliminar"></a></td> 
           </tr>
           </tr>
         <?php 

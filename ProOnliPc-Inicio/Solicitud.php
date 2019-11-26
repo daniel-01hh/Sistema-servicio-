@@ -15,6 +15,7 @@
           runMyFunction();
        }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -91,21 +92,21 @@
 
          <div class="form-group col-md-6">
           <label for="inputnombre4">Promedio aproximado: </label>
-          <input type="text" class="form-control" id="promedio" name="promedio" placeholder="9.4">
+          <input type="number" class="form-control" id="promedio" name="promedio" placeholder="9.4" max="10" min="1" step="0.01" required>
         </div>
         <div class="form-group col-md-6">
           <label for="inputAPaterno">Semestre actual que estas cursando: </label>
-          <input type="text" class="form-control" id="semestre" name="semestre" placeholder="7">
+          <input type="number" class="form-control" id="semestre" name="semestre" placeholder="7" min="5" max="11" step="1" required>
         </div>
         
         <div class="form-group col-md-6">
           <label for="inputAMaterno">Total de creditos que tienes actualmente: </label>
-          <input type="text" class="form-control" id="creditos" name="creditos" placeholder="250">
+          <input type="number" class="form-control" id="creditos" name="creditos" placeholder="250" max="350" required>
         </div>
       
       <div class="form-group col-md-6">
         <label for="inputCorreo">Habilidades e Intereses personales que tienes: </label>
-        <input type="text" class="form-control" id="habilidades" name="habilidades" placeholder="Programacion web, Desarrollo Movil">
+        <input type="text" class="form-control" id="habilidades" name="habilidades" placeholder="Programacion web, Desarrollo Movil" required>
       </div>
 
       </div>

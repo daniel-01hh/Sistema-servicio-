@@ -72,31 +72,27 @@
           <div class="section-title-divider"></div>
    <form action="editarservicio.php" method="post">
   <div class="form-row">
-    <div class="form-group col-md-6">
-    <label for="inputAddress2">Número del servicio social</label>
-    <input type="text" class="form-control" id="numero" name="numero" placeholder="Matricula">
-  </div>
      <div class="form-group col-md-6">
       <label for="inputnombre4">Nombre del SS</label>
-      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del Servicio Social" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputAPaterno">Dirección</label>
-      <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Apellido Paterno">
+      <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" required>
     </div>
     
     <div class="form-group col-md-6">
       <label for="inputAMaterno">Encargado del SS</label>
-      <input type="text" class="form-control" id="encargado" name="encargado" placeholder="Apellido Materno">
+      <input type="text" class="form-control" id="encargado" name="encargado" placeholder="Encargado del servicio" required>
     </div>
   </div>
   <div class="form-group col-md-6">
     <label for="inputCorreo">Perfil solicitado</label>
-    <input type="text" class="form-control" id="perfil" name="perfil" placeholder="Correo Electronico">
+    <input type="text" class="form-control" id="perfil" name="perfil" placeholder="Perfil" required>
   </div>
   <div class="form-group col-md-6">
     <label for="inputTelefono">Descripción</label>
-    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Telefono">
+     <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" required>
   </div>
   </div>
   <button type="submit" class="btn btn-primary">Guardar</button>
@@ -136,7 +132,6 @@
           ?>
 
             <script>
-            document.getElementById("numero").value = "<?php echo $mostrar['NumSolicitante'] ?>";
             document.getElementById("nombre").value = "<?php echo $mostrar['NombreSolicitante'] ?>";
             document.getElementById("direccion").value = "<?php echo $mostrar['Direccion'] ?>";
             document.getElementById("encargado").value = "<?php echo $mostrar['Encargado'] ?>";
